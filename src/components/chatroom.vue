@@ -6,118 +6,125 @@
       <div class="row" align="center">
         <h1 style="color: rgb(#fffff);"><i aria-hidden="true" class="fa fa-whatsapp"></i> iTrest Chatroom</h1>
         <div class="round hollow text-center">
-          <button v-on:click="(ok) in Click" class="open-btn" id="addClass"><i class="fa fa-whatsapp" aria-hidden="true"></i> Click Here</button>
+          <button v-on:click="(true) in Click" class="open-btn" id="addClass"><i class="fa fa-whatsapp" aria-hidden="true"></i> Click Here</button>
         </div>
-          <div>
-            <router-link to="/">
-            <h5>Logout</h5>
-            </router-link>
-          </div>
+         <div>
+          <router-link to="clockin">
+            <h4>Back to clock-in</h4>
+          </router-link>
+        </div>
+        <div>
+          <router-link to="/">
+            <h4>Logout</h4>
+          </router-link>
+        </div>
         <hr>
-        <div id="img" align="center">
-          <img src="static/img/itrestpro.png"/>
-       </div>
+        <div id="img" align="left">
+          <img src="static/img/itrestpro.png" />
+        </div>
 
-       <h1  v-if="Click === ok"></h1>
+        <h1 v-if="Click === 0"></h1>
+
+        <div id="chatroom" class="col-md-6 col-md-offset-6" align="right">
+          <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
+
+            <div class="popup-head">
+              <div class="popup-head-left pull-left">
+
+                <h3>Hey Jude</h3><small><br> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Web Developer</small>
+              </div>
+              <div class="popup-head-right pull-right">
+                <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-facetime-video"></i></button>
+                <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-earphone"></i></button>
+                <div class="btn-group gurdeepoushan">
+                  <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
+                        <i class="glyphicon glyphicon-paperclip"></i>
+                      </button>
+                  <ul role="menu" class="dropdown-menu pull-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Gallery</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Photo</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Video</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Audio</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Location</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Contact</a></li>
+                  </ul>
+                </div>
+
+                <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-remove"></i></button>
+              </div>
+            </div>
+            <div id="chat" class="chat_box_wrapper chat_box_small chat_box_active" style="opacity: 1; display: block; transform: translateX(0px);">
+              <div class="chat_box touchscroll chat_box_colors_a">
+                <div class="chat_message_wrapper">
+                  <div class="chat_user_avatar">
+                    <a href="https://www.facebook.com/rhannyuy.brightstar" target="_blank">
+                      <img alt="Hey Jude (Web Developer)" title="Hey Jude (Web Developer)" src="" class="static-img-itrestlo.png">
+                    </a>
+                  </div>
+
+                  <ul class="chat_message">
+                    <li>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem delectus distinctio dolor earum est hic id impedit ipsum minima mollitia natus nulla perspiciatis quae quasi, quis recusandae, saepe, sunt totam.
+                        <span class="chat_message_time">13:34</span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="chat_message_wrapper">
+                  <div class="chat_user_avatar">
+                    <a href="https://www.facebook.com/rhannyuy.brightstar" target="_blank">
+                      <img alt="Hey Jude (Web Developer)" title="Hey Jude (Web Developer)" src="" class="static-img-itrestlo.png">
+                    </a>
+                  </div>
+                  <ul class="chat_message">
+                    <li>
+                      <p>
+                        https://www.facebook.com/rhannyuy.brightstar
+                        <span class="chat_message_time">23 Jun 1:10am</span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="chat_message_wrapper chat_message_right">
+                  <div class="chat_user_avatar">
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+            <div id="ch">
+              <div class="chat_submit_box">
+                <div class="uk-input-group">
+                  <div class="gurdeep-chat-box">
+                    <span style="vertical-align: sub;" class="uk-input-group-addon">
+                      <a href="#"><i class="fa fa-smile-o"></i></a>
+                    </span>
+                    <input v-model="newMessage" type="text" placeholder="Type a message" name="sendMessage" class="md-input">
+                    <span v-for="msg of messages" style="vertical-align: sub;" class="uk-input-group-addon">
+                      {{msg}}
+                      <a href="#"><i class="fa fa-camera"></i></a>
+                    </span>
+                  </div>
+                </div>
+
+                <span class="uk-input-group-addon">
+                    <a v-on:click="sendMessage" href="#"><i class="glyphicon glyphicon-send"></i></a>
+                  </span>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
       </div>
     </div>
 
 
-  <div id="chatroom" class="col-md-6" align="right">
-    <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
 
-      <div class="popup-head">
-        <div class="popup-head-left pull-left">
-
-            <h3>Hey Jude</h3><small><br> <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Web Developer</small>
-        </div>
-        <div class="popup-head-right pull-right">
-          <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-facetime-video"></i></button>
-          <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-earphone"></i></button>
-          <div class="btn-group gurdeepoushan">
-            <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
-              <i class="glyphicon glyphicon-paperclip"></i>
-            </button>
-            <ul role="menu" class="dropdown-menu pull-right">
-              <li><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Gallery</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Photo</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Video</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Audio</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Location</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Contact</a></li>
-            </ul>
-          </div>
-
-          <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-remove"></i></button>
-        </div>
-      </div>
-    </aside>
-
-    <div id="chat" class="chat_box_wrapper chat_box_small chat_box_active" style="opacity: 1; display: block; transform: translateX(0px);">
-      <div class="chat_box touchscroll chat_box_colors_a">
-        <div class="chat_message_wrapper">
-          <div class="chat_user_avatar">
-            <a href="https://www.facebook.com/rhannyuy.brightstar" target="_blank">
-              <img alt="Hey Jude (Web Developer)" title="Hey Jude (Web Developer)" src="" class="md-user-image">
-            </a>
-          </div>
-
-          <ul class="chat_message">
-            <li>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem delectus distinctio dolor earum est hic id impedit ipsum minima mollitia natus nulla perspiciatis quae quasi, quis recusandae, saepe, sunt totam.
-                <span class="chat_message_time">13:34</span>
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div class="chat_message_wrapper">
-          <div class="chat_user_avatar">
-            <a href="https://www.facebook.com/rhannyuy.brightstar" target="_blank">
-              <img alt="Hey Jude (Web Developer)" title="Hey Jude (Web Developer)" src="" class="md-user-image">
-            </a>
-          </div>
-          <ul class="chat_message">
-            <li>
-              <p>
-                https://www.facebook.com/rhannyuy.brightstar
-                <span class="chat_message_time">23 Jun 1:10am</span>
-              </p>
-            </li>
-          </ul>
-        </div>
-        <div class="chat_message_wrapper chat_message_right">
-          <div class="chat_user_avatar">
-          </div>
-
-        </div>
-      </div>
-    </div>
-     <div id="ch">
-    <div class="chat_submit_box">
-      <div class="uk-input-group">
-        <div class="gurdeep-chat-box">
-          <span style="vertical-align: sub;" class="uk-input-group-addon">
-            <a href="#"><i class="fa fa-smile-o"></i></a>
-          </span>
-          <input v-model="newMessage" type="text" placeholder="Type a message" name="sendMessage" class="md-input">
-          <span v-for="msg of messages" style="vertical-align: sub;" class="uk-input-group-addon">
-            {{msg}}
-            <a href="#"><i class="fa fa-camera"></i></a>
-          </span>
-          </div>
-        </div>
-
-        <span class="uk-input-group-addon">
-          <a v-on:click="sendMessage" href="#"><i class="glyphicon glyphicon-send"></i></a>
-        </span>
-      </div>
-    </div>
   </div>
-   </div>
-
-
-
 </template>
 
 <script>
@@ -264,23 +271,24 @@
   .chat_box_wrapper.chat_box_small.chat_box_active {
     height: 342px;
     overflow-y: scroll;
-    width: 316px;
+    width: 300px;
   }
 
   aside {
     background-attachment: fixed;
     background-clip: border-box;
-    background-color: rgba(#27b0e1);
+    background-color: rgba(transparent);
     background-image: url("https://scontent.fixc1-1.fna.fbcdn.net/v/t1.0-9/12670232_624826600991767_3547881030871377118_n.jpg?oh=f012838d46b547b3f2f633737794db27&oe=58E0EBE7");
     background-origin: padding-box;
     background-position: center top;
     background-repeat: repeat;
-    border: 3px solid #304445;
-    bottom: 0;
-    display: none;
-    height: 466px;
-    position: fixed;
+    border: 0px solid #304445;
+    /*bottom: 0;*/
+    /*display: 0;*/
+    height: 500px;
+    /*position: right;*/
     right: 70px;
+    float: right;
     width: 300px;
     font-family: 'Open Sans', sans-serif;
   }
@@ -312,7 +320,8 @@
     width: 34px;
   }
 
-  img {
+  #img {
+    position: absolute;
     border: 0 none;
     box-sizing: border-box;
     height: auto;
@@ -459,8 +468,9 @@
   .gurdeep-chat-box {
     background: #ff3954 none repeat scroll 0 0;
     border-radius: 5px;
-    float: left;
-    padding: 3px;
+    float: right;
+    padding: 7px;
+    /*bottom: 0;*/
   }
 
   #submit_message {
@@ -476,13 +486,14 @@
   }
 
   .chat_submit_box {
-    bottom: 0;
+    /*bottom: 0;*/
     box-sizing: border-box;
     left: 0;
     overflow: hidden;
     padding: 10px;
-    position: absolute;
+    /*position: absolute;*/
     width: 100%;
+    /*top: 310px;*/
   }
 
   .uk-input-group {
@@ -491,13 +502,13 @@
     position: relative;
     top: 30px
   }
-  #ch{
-    position: relative;
-    top:50px;
+
+  .chat_box {
+    background-color: deepskyblue;
   }
-  #chatroom{
-    position: relative;
-    top: -450px;
-    height: 1500px;
-  }
+
+
+  /*#chatroom {
+        top: 0;
+      }*/
 </style>

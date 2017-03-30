@@ -23,9 +23,9 @@
             <div class="label">Email Address</div>
             <input type="text" class="form-control" placeholder="Enter username" v-model="credentials.username" />
           </div>
-           <div class="alert alert-danger" v-if="error">
-        <p>{{ error }}</p>
-      </div>
+          <div class="alert alert-danger" v-if="error">
+            <p>{{ error }}</p>
+          </div>
           <div class="control">
             <div class="label">Password</div>
             <input type="password" class="form-control" placeholder="Enter password" v-model="credentials.password" />
@@ -72,8 +72,8 @@
 
 <style>
   /*body {
-    background-color: #000000;
-  }*/
+        background-color: #000000;
+      }*/
 
   body {
     background: #0264d6;
@@ -257,8 +257,8 @@
 
 
   /*.line{
-      border-bottom : 2px solid #F32D27;
-  }*/
+          border-bottom : 2px solid #F32D27;
+      }*/
 
   .outter {
     padding: 0px;

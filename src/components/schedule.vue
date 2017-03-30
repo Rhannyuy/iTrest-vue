@@ -8,12 +8,12 @@
           </div>
           <div>
             <router-link to="clockin">
-            <h5>Back to Clock-In</h5>
+            <h4>Back to Clock-In</h4>
             </router-link>
           </div>
           <div>
             <router-link to="chatroom">
-            <h5>Chatroom</h5>
+            <h4>Chatroom</h4>
             </router-link>
           </div>
           <hr>
@@ -35,7 +35,7 @@
 
               <li v-for="(task, index) in taskList" v-bind:class="{done: task.checked}">
                 <label for="checkbox">{{ task.text }}</label>
-                <input type="checkbox" class="checkbox" v-model="task.checked">
+                <input type="checkbox"  v-model="task.checked">
                 <button class="delete" v-on:click="removeTask(index)">X</button>
               </li>
             </ul>

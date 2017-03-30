@@ -6,6 +6,11 @@
           <router-link to="schedule">
             <h3>Day's Schedule</h3>
           </router-link>
+          <div>
+          <router-link to="/">
+            <h4>Logout</h4>
+          </router-link>
+        </div>
           <hr>
           <div class="outter"><img src="../assets/lo.png" class="image-circle" /></div>
           <h1> {{timer}} </h1>
