@@ -71,9 +71,9 @@
 </script>
 
 <style>
-  body {
+  /*body {
     background-color: #000000;
-  }
+  }*/
 
   body {
     background: #0264d6;

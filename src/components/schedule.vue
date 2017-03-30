@@ -6,33 +6,45 @@
           <div class="">
             <h1>One Great Force </h1>
           </div>
+          <div>
+            <router-link to="clockin">
+            <h5>Back to Clock-In</h5>
+            </router-link>
+          </div>
+          <div>
+            <router-link to="chatroom">
+            <h5>Chatroom</h5>
+            </router-link>
+          </div>
           <hr>
-          <div class="outter"><img src="../assets/lo.png" class="image-circle" /></div>
+          <div class="outter"><img src="../assets/lo.png" class="image-circle" /></div> <br/>
 
           <div class="col-md-12 col-xs-6" align="center">
+            <div class="header">
             <h2 style="margin:5px">The Day's Task</h2>
-            <input type="text" placeholder="What do you need to do?" autofocus class="text-input" v-model="newTask" v-on:keyup.enter="addTask">
+            <input type="text" placeholder="Task for the Day" autofocus class="text-input" v-model="newTask" v-on:keyup.enter="addTask">
+            <span v-on:click="addTask()" class="addBtn">Add</span>
+            </div>
             <!--<ul>
-              <li v-for="(item, index) of todolist">
-                {{ item }}
+                      <li v-for="(item, index) of todolist">
+                        {{ item }}
+                      </li>
+                    </ul>-->
+             <div class="col-md-12 col-xs-6" align="left">
+            <ul class="list">
+
+              <li v-for="(task, index) in taskList" v-bind:class="{done: task.checked}">
+                <label for="checkbox">{{ task.text }}</label>
+                <input type="checkbox" class="checkbox" v-model="task.checked">
+                <button class="delete" v-on:click="removeTask(index)">X</button>
               </li>
-            </ul>-->
-              <ul class="list">
-
-                <li v-for="task in taskList">
-
-                  <input type="checkbox" class="checkbox">
-                  <label for="checkbox">{{ task.text }}{% raw %}</label>
-                  <button class="delete">X</button>
-
-                </li>
-
-              </ul>
+            </ul>
+            </div>
+              <button v-on:click="clearList">Clear List</button>
             <hr>
-            <div class="task">
-              <!--v-if="todolist.length === 0-->
+            <div class="task"  v-if="taskList.length === 0">
               <div class="col-md-10 col-xs-6">
-                <div id="myDIV" class="header">
+                <div id="myDIV" class="Header">
                   <div class="col-md-12 col-xs-6">
                     <h1> Job Well Done</h1>
                   </div>
@@ -50,21 +62,27 @@
   export default {
     data() {
       return {
-        newTask: "",
-        taskList:[]
-    }
+        newTask: '',
+        taskList: []
+      }
+    },
     methods: {
-        addTask:function() {
-          var task = this.newTask.trim()
-          if (task) {
+      addTask: function() {
+        var task = this.newTask.trim()
+        if (task) {
           this.taskList.push({
             text: task,
             checked: false
           })
-          this.newTask = ""
+          this.newTask = ''
         }
+      },
+      removeTask: function(index) {
+        this.taskList.splice(index, 1)
+      },
+      clearList: function() {
+        this.taskList = []
       }
-        }
     }
   }
 </script>
@@ -81,11 +99,11 @@
     /* Chrome10+,Safari5.1+ */
     background: -o-radial-gradient(center, ellipse cover, #0264d6 1%, #1c2b5a 100%);
     /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover, #0264d6 1%, #1c2b5a 100%);
+    background: -ms-radial-gradient(center, ellipse cover, #ffff66 1%, #1c2b5a 100%);
     /* IE10+ */
-    background: radial-gradient(ellipse at center, #0264d6 1%, #1c2b5a 100%);
+    background: radial-gradient(ellipse at center, #ffff66 1%, #1c2b5a 100%);
     /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0264d6', endColorstr='#1c2b5a', GradientType=1);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff66', endColorstr='#ffff66', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
     height: calc(100vh);
     width: 100%;
@@ -194,10 +212,10 @@
     cursor: pointer;
   }
 
-  .login_control {
+  /*.login_control {
     background-color: #FFF;
     padding: 10px;
-  }
+  }*/
 
   .control {
     color: #000;
@@ -266,4 +284,64 @@
     width: 200px;
     height: 200px;
   }
+  .list li.done label {
+  color: #d9d9d9;
+  background: #888;
+    color: #fff;
+  text-decoration: line-through;
+}
+.text-input {
+    border: none;
+    width: 75%;
+    padding: 10px;
+    float: 0;
+    font-size: 16px;
+    color:#000000;
+
+}
+
+.addBtn {
+    padding: 6px;
+    width: 25%;
+    background: #d9d9d9;
+    color: #555;
+    float: 0;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+ul li.checked {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    /*padding: 12px 8px 12px 40px;*/
+    /*background: #eee;*/
+    font-size: 20px;
+    transition: 0.2s;
+}
+
+.list {
+    background-color: #f44336;
+    /*padding: 30px 40px;*/
+    color: white;
+    /*text-align: center;*/
+}
+
+.header {
+    background-color: #006ca2;
+    padding: 20px 30px;
+    color: white;
+    text-align: center;
+}
+button{
+  size: 10px;
+  color:#1c2b5a;
+}
 </style>

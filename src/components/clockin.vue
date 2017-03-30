@@ -27,21 +27,19 @@
 
 <script>
   // import auth from '../auth'
+  import clock from '../clock'
   export default {
     data() {
       return {
-        start: '',
-        end: '',
-        timer: '00:00:00',
-        timerrunning: false
+        timer: '00:00:00'
       }
     },
     created() {
       setInterval(() => {
-        if (this.timerrunning === false) {
+        if (clock.timerrunning === false) {
           return
         }
-        var ms = Date.now() - this.start
+        var ms = Date.now() - clock.start
         var s = Math.floor(ms / 1000)
         var h = Math.floor(s / 3600)
         s = s - (h * 3600)
@@ -61,12 +59,12 @@
     },
     methods: {
       clockIn() {
-        this.timerrunning = true
-        this.start = Date.now()
+        clock.timerrunning = true
+        clock.start = Date.now()
       },
       clockOut() {
-        this.timerrunning = false
-        this.end = Date.now() - this.start
+        clock.timerrunning = false
+        clock.end = Date.now() - clock.start
       }
     }
   }

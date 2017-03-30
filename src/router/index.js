@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/login'
 import Schedule from '@/components/schedule'
 import Clockin from '@/components/clockin'
+import Chatroom from '@/components/chatroom'
 
 Vue.use(Router)
 export default new Router({
@@ -21,6 +22,11 @@ export default new Router({
       path: '/clockin',
       name: 'clockin',
       component: Clockin
+    },
+    {
+      path: '/chatroom',
+      name: 'chatroom',
+      component: Chatroom
     }
   ]
 })
